@@ -1,32 +1,42 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Flag Art</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
     * { box-sizing: border-box; }
 
+    :root{
+      --overlay1: rgba(0,0,0,0.25);
+      --overlay2: rgba(0,0,0,0.70);
+      --card: rgba(0,0,0,0.28);
+      --cardBorder: rgba(255,255,255,0.10);
+      --text: #ffffff;
+    }
+
     html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
       font-family: Arial, Helvetica, sans-serif;
-      color: #fff;
+      color: var(--text);
       background: #000;
     }
 
-    /* FIXED BACKGROUND (no iOS grey bar) */
+    /* Background image (GitHub Pages safe path) */
     .bg {
       position: fixed;
       inset: 0;
       z-index: -1;
       background:
-        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
-        url("/Flag-Art/background.jpg") center / cover no-repeat;
+        linear-gradient(var(--overlay1), var(--overlay2)),
+        url("./background.jpg") center / cover no-repeat;
       transform: translateZ(0);
     }
 
+    /* Top bar */
     header {
       position: fixed;
       top: 0;
@@ -35,31 +45,30 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0,0,0,0.25);
-      backdrop-filter: blur(6px);
+      background: rgba(0,0,0,0.22);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       z-index: 10;
     }
 
     header .logo {
       letter-spacing: 3px;
       font-size: 13px;
+      opacity: 0.95;
     }
 
-    header nav a {
+    header a {
       color: #fff;
       text-decoration: none;
-      margin-left: 18px;
       font-size: 13px;
-      opacity: 0.8;
+      opacity: 0.85;
     }
+    header a:hover { opacity: 1; }
 
-    header nav a:hover {
-      opacity: 1;
-    }
-
+    /* Hero */
     .hero {
       min-height: 100vh;
-      padding-top: 120px;
+      padding: 120px 18px 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -68,52 +77,39 @@
     }
 
     .hero h1 {
-      font-size: 64px;
-      letter-spacing: 6px;
-      margin: 0 0 12px 0;
+      font-size: 68px;
+      letter-spacing: 7px;
+      margin: 0 0 14px 0;
+      line-height: 1.05;
     }
 
     .hero p {
       font-size: 18px;
-      opacity: 0.85;
+      opacity: 0.88;
       margin: 0;
     }
 
-    /* SCROLL SECTION */
+    /* Scroll section */
     .section {
-      padding: 120px 24px;
-      max-width: 900px;
+      max-width: 980px;
       margin: 0 auto;
-    }
-
-    .image-block {
-      margin-bottom: 80px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .image-block.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .image-block img {
-      width: 100%;
-      display: block;
-      border-radius: 2px;
+      padding: 90px 18px 120px;
     }
 
     .enquiries {
-      max-width: 420px;
       margin: 0 auto;
-      padding: 36px 28px;
-      background: rgba(0,0,0,0.35);
-      backdrop-filter: blur(10px);
+      max-width: 520px;
+      padding: 26px 22px;
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--cardBorder);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       text-align: center;
+
       opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(18px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
     }
 
     .enquiries.visible {
@@ -121,87 +117,63 @@
       transform: translateY(0);
     }
 
-    .enquiries h3 {
-      letter-spacing: 3px;
-      font-size: 12px;
-      opacity: 0.7;
-      margin-bottom: 18px;
-    }
-
-    .enquiries p {
-      margin: 6px 0;
-      font-size: 15px;
-    }
-
     .enquiries a {
       color: #fff;
       text-decoration: none;
-      opacity: 0.85;
+      opacity: 0.92;
+      font-size: 16px;
     }
-
-    .enquiries a:hover {
-      opacity: 1;
-    }
+    .enquiries a:hover { opacity: 1; }
 
     footer {
-      padding: 40px 0;
+      padding: 36px 0 46px;
       text-align: center;
       font-size: 12px;
-      opacity: 0.5;
+      opacity: 0.55;
     }
 
-    /* MOBILE */
+    /* Mobile */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 42px; }
-      .hero p { font-size: 16px; padding: 0 20px; }
-      .section { padding: 80px 18px; }
+      header { padding: 16px 18px; }
+      .hero h1 { font-size: 44px; letter-spacing: 5px; }
+      .hero p { font-size: 16px; }
+      .section { padding: 70px 16px 110px; }
+      .enquiries { max-width: 92vw; }
     }
   </style>
 </head>
 
 <body>
-
   <div class="bg"></div>
 
   <header>
     <div class="logo">FLAG ART</div>
-    <nav>
-      <a href="https://instagram.com/flagartart" target="_blank">@flagartart</a>
-    </nav>
+    <a href="https://instagram.com/flagartart" target="_blank" rel="noopener">@flagartart</a>
   </header>
 
   <section class="hero">
     <h1>FLAG ART</h1>
-    <p>Consulting and Advisory</p>
+    <p>Art consulting and advisory.</p>
   </section>
 
   <section class="section">
-    <div class="image-block">
-      <img src="hope-v2.jpg" alt="">
-    </div>
-
-    <div class="enquiries">
-      <h3>ENQUIRIES</h3>
-      <p><a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a></p>
+    <div class="enquiries" id="enquiries">
+      <a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a>
     </div>
   </section>
 
-  <footer>
-    © Flag Art
-  </footer>
+  <footer>© Flag Art</footer>
 
   <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+    // subtle fade-in when it scrolls into view
+    const el = document.querySelector('.enquiries');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.25 });
 
-    document.querySelectorAll('.image-block, .enquiries')
-      .forEach(el => observer.observe(el));
+    if (el) obs.observe(el);
   </script>
-
 </body>
 </html>
