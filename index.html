@@ -74,64 +74,42 @@
     .hero .tagline {
       font-size: 18px;
       opacity: 0.9;
-      margin-bottom: 140px;
-    }
-
-    /* ENQUIRIES CARD */
-    .enquiries {
-      background: rgba(0,0,0,0.28);
-      backdrop-filter: blur(8px);
-      padding: 28px 46px;
-      border-radius: 6px;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-      min-width: 320px;
-    }
-
-    .enquiries h2 {
-      margin: 0 0 14px;
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      opacity: 0.75;
-    }
-
-    .enquiries .name {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .enquiries a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      font-size: 15px;
-      margin: 4px 0;
-      opacity: 0.85;
-    }
-
-    .enquiries a:hover {
-      opacity: 1;
-      text-decoration: underline;
     }
 
     /* SECTIONS */
     section {
       max-width: 900px;
       margin: 0 auto;
-      padding: 140px 24px;
+      padding: 180px 24px;
+      text-align: center;
     }
 
-    section h3 {
-      font-size: 18px;
-      letter-spacing: 2px;
-      margin-bottom: 18px;
+    section h2 {
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      opacity: 0.75;
     }
 
-    section p {
+    .contact-name {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .contact a {
+      display: block;
+      color: white;
+      text-decoration: none;
       font-size: 16px;
-      line-height: 1.6;
-      opacity: 0.9;
+      margin: 6px 0;
+      opacity: 0.85;
+    }
+
+    .contact a:hover {
+      opacity: 1;
+      text-decoration: underline;
     }
 
     /* FOOTER */
@@ -149,39 +127,24 @@
 <header>
   <div class="logo">FLAG ART</div>
   <nav>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="#enquiries">Enquiries</a>
   </nav>
 </header>
 
 <div class="hero">
   <h1>FLAG ART</h1>
   <div class="tagline">Art consulting and advisory.</div>
+</div>
 
-  <div class="enquiries" id="contact">
-    <h2>Enquiries</h2>
-    <div class="name">Martin Klosterfelde</div>
+<section id="enquiries">
+  <h2>Enquiries</h2>
+
+  <div class="contact-name">Martin Klosterfelde</div>
+
+  <div class="contact">
     <a href="tel:+447921881891">+44 7921 881891</a>
     <a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a>
   </div>
-</div>
-
-<section id="about">
-  <h3>What we do</h3>
-  <p>
-    Flag Art is a flexible consultancy working across research, advisory,
-    and project direction. We support collectors, brands, and institutions
-    in navigating contemporary and historical practices with clarity.
-  </p>
-</section>
-
-<section>
-  <h3>Approach</h3>
-  <p>
-    Our approach is deliberately measured. We prioritise context,
-    long-term thinking, and sensitivity to space, material, and intent.
-    Projects are shaped through dialogue rather than prescription.
-  </p>
 </section>
 
 <footer>
