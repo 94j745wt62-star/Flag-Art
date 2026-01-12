@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-<title>Flag Art vFINAL</title>
+  <title>Flag Art</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -15,13 +15,23 @@
       color: white;
     }
 
+    /* fallback background */
     body {
-      background:
-        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
-        url("background.jpg") no-repeat center center fixed;
-      background-size: cover;
+      background: #000;
     }
 
+    /* FIXED BACKGROUND LAYER (mobile-safe) */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
+        url("background.jpg") center / cover no-repeat;
+      transform: translateZ(0);
+    }
+
+    /* HEADER */
     header {
       position: fixed;
       top: 0;
@@ -40,6 +50,7 @@
       font-weight: bold;
     }
 
+    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -61,6 +72,7 @@
       opacity: 0.9;
     }
 
+    /* SECTIONS */
     section {
       max-width: 900px;
       margin: 0 auto;
@@ -68,6 +80,7 @@
       text-align: center;
     }
 
+    /* Fade-in on scroll */
     .fade-in {
       opacity: 0;
       transform: translateY(18px);
@@ -112,43 +125,61 @@
       font-size: 12px;
       opacity: 0.6;
     }
+
+    /* MOBILE TWEAKS */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 42px; }
+      .hero .tagline {
+        font-size: 16px;
+        padding: 0 18px;
+      }
+      section {
+        padding: 160px 22px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo">FLAG ART</div>
-</header>
+  <!-- fixed background layer -->
+  <div class="bg"></div>
 
-<div class="hero">
-  <h1>FLAG ART</h1>
-  <div class="tagline">Art consulting and advisory.</div>
-</div>
+  <header>
+    <div class="logo">FLAG ART</div>
+  </header>
 
-<section class="fade-in">
-  <h2>Enquiries</h2>
-
-  <div class="contact-name">Martin Klosterfelde</div>
-
-  <div class="contact">
-    <a href="tel:+447921881891">+44 7921 881891</a>
-    <a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a>
+  <div class="hero">
+    <h1>FLAG ART</h1>
+    <div class="tagline">Art consulting and advisory.</div>
   </div>
-</section>
 
-<footer>
-  © Flag Art
-</footer>
+  <section class="fade-in">
+    <h2>Enquiries</h2>
 
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
+    <div class="contact-name">Martin Klosterfelde</div>
+
+    <div class="contact">
+      <a href="tel:+447921881891">+44 7921 881891</a>
+      <a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a>
+    </div>
+  </section>
+
+  <footer>
+    © Flag Art
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
     });
-  });
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
