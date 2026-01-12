@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Flag Art</title>
+  <title>Flag Art — v12</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -22,14 +22,12 @@
       background-size: cover;
     }
 
-    /* HEADER */
     header {
       position: fixed;
       top: 0;
       width: 100%;
       padding: 18px 32px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       background: rgba(0,0,0,0.35);
       backdrop-filter: blur(6px);
@@ -42,7 +40,6 @@
       font-weight: bold;
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -64,21 +61,18 @@
       opacity: 0.9;
     }
 
-    /* SECTIONS */
     section {
       max-width: 900px;
       margin: 0 auto;
-      padding: 180px 24px;
+      padding: 200px 24px;
       text-align: center;
     }
 
-    /* Fade-in animation */
     .fade-in {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(18px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
     }
-
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
@@ -132,7 +126,7 @@
   <div class="tagline">Art consulting and advisory.</div>
 </div>
 
-<section id="enquiries" class="fade-in">
+<section class="fade-in">
   <h2>Enquiries</h2>
 
   <div class="contact-name">Martin Klosterfelde</div>
@@ -144,22 +138,16 @@
 </section>
 
 <footer>
- © Flag Art — v999
+  © Flag Art
 </footer>
 
 <script>
-  // Fade-in on scroll
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
   });
-
-  document.querySelectorAll('.fade-in').forEach(el => {
-    observer.observe(el);
-  });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
 </body>
