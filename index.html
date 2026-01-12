@@ -12,12 +12,11 @@
       margin: 0;
       padding: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: white;
+      color: #fff;
+      background: #000;
     }
 
-    body { background: #000; }
-
-    /* FIXED BACKGROUND LAYER (mobile-safe) */
+    /* FIXED BACKGROUND (no iOS grey bar) */
     .bg {
       position: fixed;
       inset: 0;
@@ -28,150 +27,134 @@
       transform: translateZ(0);
     }
 
-    /* HEADER */
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 18px 32px;
+      padding: 18px 28px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0,0,0,0.25);
       backdrop-filter: blur(6px);
       z-index: 10;
     }
 
     header .logo {
-      font-size: 14px;
       letter-spacing: 3px;
-      font-weight: bold;
+      font-size: 13px;
     }
 
-    /* HERO */
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    header nav a:hover {
+      opacity: 1;
+    }
+
     .hero {
       min-height: 100vh;
+      padding-top: 120px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
-      padding-top: 120px;
     }
 
     .hero h1 {
       font-size: 64px;
-      letter-spacing: 4px;
-      margin-bottom: 18px;
+      letter-spacing: 6px;
+      margin: 0 0 12px 0;
     }
 
-    .hero .tagline {
+    .hero p {
       font-size: 18px;
-      opacity: 0.9;
+      opacity: 0.85;
+      margin: 0;
     }
 
-    /* SECTIONS */
-    section {
-      max-width: 980px;
+    /* SCROLL SECTION */
+    .section {
+      padding: 120px 24px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 140px 24px;
-      text-align: center;
     }
 
-    /* Fade-in on scroll */
-    .fade-in {
+    .image-block {
+      margin-bottom: 80px;
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
     }
-    .fade-in.visible {
+
+    .image-block.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* IMAGE FEATURE (Option A) */
-    .feature {
-      padding-top: 120px;
-      padding-bottom: 90px;
-    }
-
-    .feature-card {
-      margin: 0 auto;
-      max-width: 880px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(0,0,0,0.20);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 18px 60px rgba(0,0,0,0.45);
-    }
-
-    .feature-card img {
-      display: block;
+    .image-block img {
       width: 100%;
-      height: auto;
-    }
-
-    .feature-meta {
-      padding: 18px 18px 20px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.26);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.08);
-      text-decoration: none;
-      color: white;
-      font-size: 14px;
-      opacity: 0.9;
-    }
-    .pill:hover { opacity: 1; text-decoration: underline; }
-
-    /* ENQUIRIES (no label heading, just clean type) */
-    .contact-name {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
-
-    .contact a {
       display: block;
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
+      border-radius: 2px;
+    }
+
+    .enquiries {
+      max-width: 420px;
+      margin: 0 auto;
+      padding: 36px 28px;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .enquiries.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .enquiries h3 {
+      letter-spacing: 3px;
+      font-size: 12px;
+      opacity: 0.7;
+      margin-bottom: 18px;
+    }
+
+    .enquiries p {
       margin: 6px 0;
+      font-size: 15px;
+    }
+
+    .enquiries a {
+      color: #fff;
+      text-decoration: none;
       opacity: 0.85;
     }
 
-    .contact a:hover {
+    .enquiries a:hover {
       opacity: 1;
-      text-decoration: underline;
     }
 
     footer {
-      text-align: center;
       padding: 40px 0;
+      text-align: center;
       font-size: 12px;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     /* MOBILE */
     @media (max-width: 768px) {
-      header { padding: 16px 18px; }
       .hero h1 { font-size: 42px; }
-      .hero .tagline { font-size: 16px; padding: 0 18px; }
-      section { padding: 110px 18px; }
-      .feature { padding-top: 95px; }
-      .feature-card { border-radius: 10px; }
-      .pill { font-size: 13px; padding: 9px 12px; }
+      .hero p { font-size: 16px; padding: 0 20px; }
+      .section { padding: 80px 18px; }
     }
   </style>
 </head>
@@ -182,41 +165,44 @@
 
   <header>
     <div class="logo">FLAG ART</div>
+    <nav>
+      <a href="https://instagram.com/flagartart" target="_blank">@flagartart</a>
+    </nav>
   </header>
 
-  <div class="hero">
+  <section class="hero">
     <h1>FLAG ART</h1>
-    <div class="tagline">Art consulting and advisory.</div>
-  </div>
+    <p>Art consulting and advisory.</p>
+  </section>
 
-  <!-- OPTION A IMAGE MOMENT (no label) -->
-  <section class="feature fade-in">
-    <div class="feature-card">
-      <img src="hope-v2" alt="Flag Art image">
-      <div class="feature-meta">
-        <a class="pill" href="https://www.instagram.com/flagartart/" target="_blank" rel="noopener">Instagram @flagartart</a>
-      </div>
+  <section class="section">
+    <div class="image-block">
+      <img src="hope-v2.jpg" alt="">
+    </div>
+
+    <div class="enquiries">
+      <h3>ENQUIRIES</h3>
+      <p>Martin Klosterfelde</p>
+      <p><a href="tel:+447921881891">+44 7921 881891</a></p>
+      <p><a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a></p>
     </div>
   </section>
 
-  <!-- ENQUIRIES (scroll-only) -->
-  <section class="fade-in">
-    <div class="contact-name">Martin Klosterfelde</div>
-    <div class="contact">
-      <a href="tel:+447921881891">+44 7921 881891</a>
-      <a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a>
-    </div>
-  </section>
-
-  <footer>© Flag Art</footer>
+  <footer>
+    © Flag Art
+  </footer>
 
   <script>
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
-    });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.image-block, .enquiries')
+      .forEach(el => observer.observe(el));
   </script>
 
 </body>
