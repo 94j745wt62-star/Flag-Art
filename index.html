@@ -42,18 +42,6 @@
       font-weight: bold;
     }
 
-    header nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 24px;
-      font-size: 13px;
-      opacity: 0.85;
-    }
-
-    header nav a:hover {
-      opacity: 1;
-    }
-
     /* HERO */
     .hero {
       min-height: 100vh;
@@ -84,6 +72,18 @@
       text-align: center;
     }
 
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     section h2 {
       font-size: 14px;
       letter-spacing: 3px;
@@ -112,7 +112,6 @@
       text-decoration: underline;
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 40px 0;
@@ -126,9 +125,6 @@
 
 <header>
   <div class="logo">FLAG ART</div>
-  <nav>
-    <a href="#enquiries">Enquiries</a>
-  </nav>
 </header>
 
 <div class="hero">
@@ -136,7 +132,7 @@
   <div class="tagline">Art consulting and advisory.</div>
 </div>
 
-<section id="enquiries">
+<section id="enquiries" class="fade-in">
   <h2>Enquiries</h2>
 
   <div class="contact-name">Martin Klosterfelde</div>
@@ -150,6 +146,21 @@
 <footer>
   © Flag Art
 </footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+</script>
 
 </body>
 </html>
