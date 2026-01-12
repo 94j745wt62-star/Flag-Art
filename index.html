@@ -6,92 +6,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: Arial, Helvetica, sans-serif;
       color: white;
     }
 
     body {
       background:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.75)),
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
         url("background.jpg") no-repeat center center fixed;
       background-size: cover;
     }
 
-    .container {
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 18px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
+      z-index: 10;
+    }
+
+    header .logo {
+      font-size: 14px;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    header nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    header nav a:hover {
+      opacity: 1;
+    }
+
+    /* HERO */
+    .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 60px 20px;
+      padding-top: 120px;
     }
 
-    h1 {
-      font-size: 52px;
+    .hero h1 {
+      font-size: 64px;
       letter-spacing: 4px;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
-    .tagline {
-      max-width: 640px;
+    .hero .tagline {
       font-size: 18px;
-      line-height: 1.6;
       opacity: 0.9;
-      margin-bottom: 50px;
+      margin-bottom: 140px;
     }
 
-    /* Enquiries section */
+    /* ENQUIRIES CARD */
     .enquiries {
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(6px);
-      padding: 32px 42px;
-      border-radius: 14px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
-      min-width: 280px;
+      background: rgba(0,0,0,0.28);
+      backdrop-filter: blur(8px);
+      padding: 28px 46px;
+      border-radius: 6px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+      min-width: 320px;
     }
 
     .enquiries h2 {
-      margin: 0 0 18px;
-      font-size: 14px;
+      margin: 0 0 14px;
+      font-size: 13px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      opacity: 0.7;
+      opacity: 0.75;
     }
 
-    .name {
-      font-size: 20px;
+    .enquiries .name {
+      font-size: 18px;
       font-weight: 600;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
-    .contact a {
+    .enquiries a {
       display: block;
       color: white;
       text-decoration: none;
-      font-size: 16px;
-      margin: 6px 0;
-      opacity: 0.9;
+      font-size: 15px;
+      margin: 4px 0;
+      opacity: 0.85;
     }
 
-    .contact a:hover {
+    .enquiries a:hover {
       opacity: 1;
       text-decoration: underline;
     }
 
+    /* SECTIONS */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 140px 24px;
+    }
+
+    section h3 {
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+    }
+
+    section p {
+      font-size: 16px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* FOOTER */
     footer {
-      position: fixed;
-      bottom: 18px;
-      width: 100%;
       text-align: center;
+      padding: 40px 0;
       font-size: 12px;
       opacity: 0.6;
     }
@@ -100,27 +146,47 @@
 
 <body>
 
-  <div class="container">
-    <h1>FLAG ART</h1>
+<header>
+  <div class="logo">FLAG ART</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <p class="tagline">
-      Art consulting and advisory for collectors, brands, and projects.
-    </p>
+<div class="hero">
+  <h1>FLAG ART</h1>
+  <div class="tagline">Art consulting and advisory.</div>
 
-    <div class="enquiries">
-      <h2>Enquiries</h2>
-      <div class="name">Martin Klosterfelde</div>
-
-      <div class="contact">
-        <a href="tel:+447921881891">+44&nbsp;7921&nbsp;881891</a>
-        <a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a>
-      </div>
-    </div>
+  <div class="enquiries" id="contact">
+    <h2>Enquiries</h2>
+    <div class="name">Martin Klosterfelde</div>
+    <a href="tel:+447921881891">+44 7921 881891</a>
+    <a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a>
   </div>
+</div>
 
-  <footer>
-    © Flag Art
-  </footer>
+<section id="about">
+  <h3>What we do</h3>
+  <p>
+    Flag Art is a flexible consultancy working across research, advisory,
+    and project direction. We support collectors, brands, and institutions
+    in navigating contemporary and historical practices with clarity.
+  </p>
+</section>
+
+<section>
+  <h3>Approach</h3>
+  <p>
+    Our approach is deliberately measured. We prioritise context,
+    long-term thinking, and sensitivity to space, material, and intent.
+    Projects are shaped through dialogue rather than prescription.
+  </p>
+</section>
+
+<footer>
+  © Flag Art
+</footer>
 
 </body>
 </html>
