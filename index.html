@@ -7,32 +7,23 @@
 
   <style>
     * { box-sizing: border-box; }
-
-    :root{
-      --overlay1: rgba(0,0,0,0.25);
-      --overlay2: rgba(0,0,0,0.70);
-      --card: rgba(0,0,0,0.28);
-      --cardBorder: rgba(255,255,255,0.10);
-      --text: #ffffff;
-    }
-
-    html, body {
+    html, body { height: 100%; }
+    body {
       margin: 0;
-      padding: 0;
-      height: 100%;
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
+      color: #fff;
       background: #000;
+      overflow-x: hidden;
     }
 
-    /* Background image (GitHub Pages safe path) */
+    /* FIXED BACKGROUND */
     .bg {
       position: fixed;
       inset: 0;
       z-index: -1;
       background:
-        linear-gradient(var(--overlay1), var(--overlay2)),
-        url("./background.jpg") center / cover no-repeat;
+        linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.55)),
+        url("background.jpg") center / cover no-repeat;
       transform: translateZ(0);
     }
 
@@ -40,18 +31,19 @@
     header {
       position: fixed;
       top: 0;
-      width: 100%;
+      left: 0;
+      right: 0;
       padding: 18px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(0,0,0,0.22);
+      background: rgba(0,0,0,0.18);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       z-index: 10;
     }
 
-    header .logo {
+    .logo {
       letter-spacing: 3px;
       font-size: 13px;
       opacity: 0.95;
@@ -65,68 +57,66 @@
     }
     header a:hover { opacity: 1; }
 
-    /* Hero */
+    /* HERO */
     .hero {
       min-height: 100vh;
-      padding: 120px 18px 80px;
+      padding: 120px 24px 70px;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
     }
 
     .hero h1 {
-      font-size: 68px;
-      letter-spacing: 7px;
-      margin: 0 0 14px 0;
-      line-height: 1.05;
+      margin: 0 0 12px 0;
+      font-size: 64px;
+      letter-spacing: 6px;
     }
 
     .hero p {
-      font-size: 18px;
-      opacity: 0.88;
       margin: 0;
+      font-size: 18px;
+      opacity: 0.85;
     }
 
     /* Scroll section */
     .section {
-      max-width: 980px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 90px 18px 120px;
+      padding: 120px 24px;
     }
 
-    .enquiries {
-      margin: 0 auto;
+    .card {
       max-width: 520px;
-      padding: 26px 22px;
-      border-radius: 14px;
-      background: var(--card);
-      border: 1px solid var(--cardBorder);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      margin: 0 auto;
+      padding: 34px 28px;
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       text-align: center;
 
       opacity: 0;
       transform: translateY(18px);
-      transition: opacity 0.9s ease, transform 0.9s ease;
+      transition: opacity 900ms ease, transform 900ms ease;
     }
 
-    .enquiries.visible {
+    .card.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .enquiries a {
+    .card a {
       color: #fff;
       text-decoration: none;
-      opacity: 0.92;
-      font-size: 16px;
+      opacity: 0.9;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
     }
-    .enquiries a:hover { opacity: 1; }
+    .card a:hover { opacity: 1; }
 
     footer {
-      padding: 36px 0 46px;
+      padding: 50px 0;
       text-align: center;
       font-size: 12px;
       opacity: 0.55;
@@ -135,10 +125,10 @@
     /* Mobile */
     @media (max-width: 768px) {
       header { padding: 16px 18px; }
-      .hero h1 { font-size: 44px; letter-spacing: 5px; }
+      .hero h1 { font-size: 42px; letter-spacing: 5px; }
       .hero p { font-size: 16px; }
-      .section { padding: 70px 16px 110px; }
-      .enquiries { max-width: 92vw; }
+      .section { padding: 90px 18px; }
+      .card { border-radius: 14px; }
     }
   </style>
 </head>
@@ -148,32 +138,32 @@
 
   <header>
     <div class="logo">FLAG ART</div>
-    <a href="https://instagram.com/flagartart" target="_blank" rel="noopener">@flagartart</a>
+    <a href="https://instagram.com/flagartart" target="_blank" rel="noopener noreferrer">@flagartart</a>
   </header>
 
   <section class="hero">
-    <h1>FLAG ART</h1>
-    <p>Art consulting and advisory.</p>
+    <div>
+      <h1>FLAG ART</h1>
+      <p>Art consulting and advisory.</p>
+    </div>
   </section>
 
   <section class="section">
-    <div class="enquiries" id="enquiries">
-      <a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a>
+    <div class="card" id="enquiries">
+      <p style="margin:0; font-size:15px;">
+        <a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a>
+      </p>
     </div>
   </section>
 
   <footer>© Flag Art</footer>
 
   <script>
-    // subtle fade-in when it scrolls into view
-    const el = document.querySelector('.enquiries');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      });
-    }, { threshold: 0.25 });
-
-    if (el) obs.observe(el);
+    const el = document.getElementById("enquiries");
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) el.classList.add("visible"); });
+    }, { threshold: 0.2 });
+    obs.observe(el);
   </script>
 </body>
 </html>
