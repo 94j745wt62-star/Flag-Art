@@ -15,13 +15,12 @@
       font-family: Arial, Helvetica, sans-serif;
       color: #fff;
       background: #000;
-      overflow-x: hidden;
     }
 
-    /* FULL SCREEN BACKGROUND IMAGE */
+    /* BACKGROUND IMAGE */
     .bg {
       position: fixed;
-      inset: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       z-index: -1;
       background:
         linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
@@ -29,7 +28,6 @@
       transform: translateZ(0);
     }
 
-    /* TOP BAR */
     header {
       position: fixed;
       top: 0;
@@ -58,7 +56,6 @@
     }
     header nav a:hover { opacity: 1; }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       padding: 120px 24px 80px;
@@ -75,7 +72,6 @@
       line-height: 1;
     }
 
-    /* CONTACT (simple, no box) */
     .contact {
       width: 100%;
       padding: 0 24px 70px;
@@ -121,7 +117,6 @@
       opacity: 0.45;
     }
 
-    /* MOBILE */
     @media (max-width: 768px) {
       .hero h1 { font-size: 42px; letter-spacing: 5px; }
       header { padding: 16px 18px; }
@@ -140,10 +135,7 @@
   </header>
 
   <section class="hero">
-    <div>
-      <h1>FLAG ART</h1>
-      <!-- tagline removed on purpose -->
-    </div>
+    <h1>FLAG ART</h1>
   </section>
 
   <section class="contact">
@@ -162,7 +154,6 @@
     const io = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) el.classList.add("visible");
     }, { threshold: 0.15 });
-
     io.observe(el);
   </script>
 </body>
