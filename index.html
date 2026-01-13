@@ -13,11 +13,11 @@
       padding: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: #fff;
-      background: transparent; /* IMPORTANT: don’t paint the page black */
+      background: transparent;
       min-height: 100%;
     }
 
-    /* FULL-PAGE FIXED BACKGROUND (always behind everything) */
+    /* FULL-PAGE FIXED BACKGROUND */
     body::before {
       content: "";
       position: fixed;
@@ -27,7 +27,7 @@
       transform: translateZ(0);
     }
 
-    /* subtle dark gradient so white text reads nicely */
+    /* subtle dark gradient */
     body::after {
       content: "";
       position: fixed;
@@ -87,21 +87,12 @@
       text-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
-    /* OPTIONAL: if you want the subtitle back later, just uncomment this block
-    .hero p {
-      margin: 0;
-      font-size: 18px;
-      opacity: 0.88;
-      text-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    }
-    */
-
-    /* spacer so people must scroll to find enquiries */
+    /* spacer so enquiries must be discovered */
     .spacer {
       height: 55vh;
     }
 
-    /* ENQUIRIES (no box) */
+    /* ENQUIRIES */
     .enquiries-wrap {
       padding: 110px 24px 140px;
       display: flex;
@@ -164,7 +155,6 @@
 
   <section class="hero">
     <h1>FLAG ART</h1>
-    <!-- <p>Art consulting and advisory.</p> -->
   </section>
 
   <div class="spacer"></div>
@@ -172,7 +162,7 @@
   <section class="enquiries-wrap">
     <div class="enquiries" id="enquiries">
       <div class="label">ENQUIRIES</div>
-      <a href="mailto:martin@klosterfelde.de">martin@klosterfelde.de</a>
+      <a href="mailto:office@flag-art.art">office@flag-art.art</a>
     </div>
   </section>
 
